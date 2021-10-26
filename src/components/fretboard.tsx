@@ -19,6 +19,13 @@ type FretboardLayoutProps = {
   strings: Strings[];
 };
 
+type PentatonicPositions = {
+  stringNumber: 1 | 2 | 3 | 4 | 5 | 6;
+  fretNumber: number;
+  fretNote: string;
+  root: "major" | "minor" | null;
+};
+
 const Notes = ({ strings }: StringProps) => {
   return (
     <>
@@ -128,6 +135,18 @@ const Fretboard = () => {
             fretNumber: 8,
             fretNote: "C",
             root: "major",
+          },
+          {
+            stringNumber: 5,
+            fretNumber: 5,
+            fretNote: "D",
+            root: null,
+          },
+          {
+            stringNumber: 5,
+            fretNumber: 8,
+            fretNote: "D",
+            root: null,
           },
         ],
       },
