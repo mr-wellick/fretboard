@@ -22,6 +22,7 @@ type FretboardLayoutProps = {
 type PentatonicPositions = {
   stringNumber: 1 | 2 | 3 | 4 | 5 | 6;
   fretNumber: number;
+  semitones: number;
   fretNote: string;
   root: "major" | "minor" | null;
 };
@@ -125,27 +126,31 @@ const Fretboard = () => {
       pentatonicScales: {
         firstPosition: [
           {
+            semitones: 5,
             stringNumber: 6,
             fretNumber: 5,
             fretNote: "A",
             root: "minor",
           },
           {
+            semitones: 8,
             stringNumber: 6,
             fretNumber: 8,
             fretNote: "C",
             root: "major",
           },
           {
+            semitones: 8,
             stringNumber: 5,
             fretNumber: 5,
             fretNote: "D",
             root: null,
           },
           {
+            semitones: 7,
             stringNumber: 5,
             fretNumber: 8,
-            fretNote: "D",
+            fretNote: "E",
             root: null,
           },
         ],
