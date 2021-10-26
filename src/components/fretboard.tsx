@@ -1,20 +1,37 @@
 import React from "react";
 import uniqueId from "lodash.uniqueid";
 
+type Strings = {
+  stringNumber: number;
+  stringName: string;
+  id: string;
+  style: string;
+};
+
+type StringProps = {
+  strings: Strings[];
+};
+
 type FretboardLayoutProps = {
   scaleLengthInCM: number;
   fretCols: number;
   fretRows: number;
-  strings: {
-    stringNumber: number;
-    stringName: string;
-    id: string;
-    style: string;
-  }[];
+  strings: Strings[];
 };
 
-const Note = () => {
-  return <div></div>;
+const Notes = ({ strings }: StringProps) => {
+  return (
+    <>
+      {strings.map((string) => (
+        <p
+          key={string.id}
+          className={`${string.style} border border-red-600 rounded-full h-6 w-6 flex items-center justify-center`}
+        >
+          {string.stringName}
+        </p>
+      ))}
+    </>
+  );
 };
 
 const String = ({
@@ -24,20 +41,13 @@ const String = ({
   strings,
 }: FretboardLayoutProps) => {
   console.log(scaleLengthInCM);
-  console.log(strings);
+
   return (
     <>
       <div className="flex content-center">
-        {/* Render n strings */}
+        {/* Render n strings representing strings */}
         <div className="mr-2">
-          {strings.map((string) => (
-            <p
-              key={string.id}
-              className={`${string.style} border border-red-600 rounded-full h-6 w-6 flex items-center justify-center`}
-            >
-              {string.stringName}
-            </p>
-          ))}
+          <Notes strings={strings} />
         </div>
         {/* Render an m (rows) x n (columns) matrix */}
         <div className={`grid grid-cols-${fretCols} w-full`}>
