@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/hooks";
 
 // type Strings = {
 //   stringNumber: number;
@@ -80,7 +80,7 @@ import { useSelector } from "react-redux";
 // };
 
 const Fretboard = () => {
-  const { fretCols, fretRows, strings, pentatonicScales } = useSelector(
+  const { fretCols, fretRows, strings, pentatonicScales } = useAppSelector(
     (state) => state.fretboard
   );
   console.log(fretCols, fretRows, strings, pentatonicScales);
