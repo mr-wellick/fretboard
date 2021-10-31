@@ -7,12 +7,13 @@ type Strings = {
   id: string;
 };
 
-type PentatonicPositions = {
+export type PentatonicPositions = {
   stringNumber: 1 | 2 | 3 | 4 | 5 | 6;
   fretNumber: number;
   semitones: number;
   fretNote: string;
   root: "major" | "minor" | null;
+  id: string;
 };
 
 type FretboardState = {
@@ -72,6 +73,7 @@ const initialState: FretboardState = {
         stringNumber: 6,
         fretNumber: 5,
         fretNote: "A",
+        id: uniqueId("A"),
         root: "minor",
       },
       {
@@ -79,6 +81,7 @@ const initialState: FretboardState = {
         stringNumber: 6,
         fretNumber: 8,
         fretNote: "C",
+        id: uniqueId("C"),
         root: "major",
       },
       {
@@ -86,6 +89,7 @@ const initialState: FretboardState = {
         stringNumber: 5,
         fretNumber: 5,
         fretNote: "D",
+        id: uniqueId("D"),
         root: null,
       },
       {
@@ -93,6 +97,7 @@ const initialState: FretboardState = {
         stringNumber: 5,
         fretNumber: 8,
         fretNote: "E",
+        id: uniqueId("E"),
         root: null,
       },
     ],
