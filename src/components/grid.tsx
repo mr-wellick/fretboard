@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useRef, useEffect } from "react";
 import { useDrop } from "react-dnd";
 import { useAppSelector } from "../app/hooks";
 import { itemTypes } from "./itemTypes";
@@ -11,6 +11,7 @@ type FretProps = {
 };
 
 const Frets: FC<FretProps> = ({ column, row }) => {
+  const fretContainerRef = useRef<HTMLInputElement>(null);
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: itemTypes.note,
     drop: () => ({ name: "Grid", column, row }),
@@ -22,9 +23,23 @@ const Frets: FC<FretProps> = ({ column, row }) => {
 
   const isActive = canDrop && isOver;
 
+  useEffect(() => {
+    if (fretContainerRef.current) {
+      console.log(fretContainerRef.current.getBoundingClientRect());
+    }
+  }, []);
+
   return (
-    <div ref={drop} role="Grid" className="border border-gray-600 ">
-      {isActive ? "Release to drop" : "Drag a box here"}
+    <div ref={fretContainerRef}>
+      <div
+        ref={drop}
+        role="Grid"
+        className="border border-gray-600"
+        data-column={column}
+        data-row={row}
+      >
+        {isActive ? "Release to drop" : "Drag a box here"}
+      </div>
     </div>
   );
 };

@@ -1,16 +1,15 @@
 import { FC } from "react";
 import { useDrag } from "react-dnd";
-import { useAppSelector } from "../app/hooks";
 import { itemTypes } from "./itemTypes";
 import { PentatonicPositions } from "../features/fretboard/fretboardSlice";
+import chalk from "chalk";
 
-const Notes: FC = () => {
-  const { pentatonicScales } = useAppSelector((state) => state.fretboard);
+const Note: FC<PentatonicPositions> = (props) => {
   const [, drag] = useDrag(() => ({
     type: itemTypes.note,
-    item: { ...pentatonicScales.firstPosition },
+    item: { ...props },
     end: (item, monitor) => {
-      const dropResult = monitor.getDropResult<PentatonicPositions>();
+      const dropResult = monitor.getDropResult();
       if (item && dropResult) {
         console.log(dropResult);
         console.log(item);
@@ -21,6 +20,7 @@ const Notes: FC = () => {
       handlerId: monitor.getHandlerId(),
     }),
   }));
+  console.log(chalk.green("<Note />  props"), props);
 
   return (
     <div
@@ -28,9 +28,9 @@ const Notes: FC = () => {
       role="Note"
       className="flex items-center justify-center border border-red-600 rounded-full h-12 w-12 cursor-move"
     >
-      G
+      {props.fretNote}
     </div>
   );
 };
 
-export default Notes;
+export default Note;
