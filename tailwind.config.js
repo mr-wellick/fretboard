@@ -13,6 +13,9 @@ module.exports = {
         20: "repeat(20, minmax(0, 1fr))",
         21: "repeat(21, minmax(0, 1fr))",
       },
+      zIndex: {
+        "-10": "-10",
+      },
     },
   },
   variants: {

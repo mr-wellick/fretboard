@@ -3,7 +3,7 @@ import { useDrag } from "react-dnd";
 import { useAppDispatch } from "../app/hooks";
 import { itemTypes } from "../components/itemTypes";
 import { PentatonicPositions } from "../features/fretboard/fretboardSlice";
-import { addNote, asyncAddNote } from "../features/grid/gridSlice";
+import { asyncAddNote } from "../features/grid/gridSlice";
 
 const Note: FC<PentatonicPositions> = (props) => {
   const dispatch = useAppDispatch();
@@ -14,7 +14,6 @@ const Note: FC<PentatonicPositions> = (props) => {
       const dropResult = monitor.getDropResult<PentatonicPositions>();
       if (item && dropResult) {
         dispatch(asyncAddNote(item));
-        // dispatch(addNote(item));
       }
     },
     collect: (monitor) => ({

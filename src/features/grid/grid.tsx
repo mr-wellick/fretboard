@@ -6,6 +6,25 @@ import range from "lodash.range";
 import uniqueId from "lodash.uniqueid";
 import { initFretboardGrid } from "./gridSlice";
 
+const ActiveNotes: FC = () => {
+  const { activeNotes } = useAppSelector((state) => state.grid);
+  return (
+    <div className="absolute w-full h-full -z-10">
+      {activeNotes.map((note) => {
+        return (
+          <div
+            key={note.id}
+            role="Note"
+            className="flex items-center justify-center border border-red-600 rounded-full h-12 w-12"
+          >
+            {note.fretNote}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 type FretProps = {
   column: number;
   row: number;
@@ -62,7 +81,8 @@ const Frets: FC<FretProps> = ({ column, row }) => {
 const Grid: FC = () => {
   const { fretCols, fretRows } = useAppSelector((state) => state.fretboard);
   return (
-    <div className={`grid grid-cols-${fretCols}`}>
+    <div className={`grid grid-cols-${fretCols} relative`}>
+      <ActiveNotes />
       {range(1, fretRows + 1).map((row: number) => {
         return range(1, fretCols + 1).map((column: number) => {
           return (
