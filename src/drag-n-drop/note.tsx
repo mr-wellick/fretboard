@@ -1,18 +1,20 @@
 import { FC } from "react";
 import { useDrag } from "react-dnd";
-import { itemTypes } from "./itemTypes";
+import { useAppDispatch } from "../app/hooks";
+import { itemTypes } from "../components/itemTypes";
 import { PentatonicPositions } from "../features/fretboard/fretboardSlice";
-import chalk from "chalk";
+import { addNote, asyncAddNote } from "../features/grid/gridSlice";
 
 const Note: FC<PentatonicPositions> = (props) => {
+  const dispatch = useAppDispatch();
   const [, drag] = useDrag(() => ({
     type: itemTypes.note,
     item: { ...props },
     end: (item, monitor) => {
-      const dropResult = monitor.getDropResult();
+      const dropResult = monitor.getDropResult<PentatonicPositions>();
       if (item && dropResult) {
-        console.log(dropResult);
-        console.log(item);
+        dispatch(asyncAddNote(item));
+        // dispatch(addNote(item));
       }
     },
     collect: (monitor) => ({
@@ -20,7 +22,6 @@ const Note: FC<PentatonicPositions> = (props) => {
       handlerId: monitor.getHandlerId(),
     }),
   }));
-  console.log(chalk.green("<Note />  props"), props);
 
   return (
     <div

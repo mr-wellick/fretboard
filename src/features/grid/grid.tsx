@@ -32,7 +32,7 @@ const Frets: FC<FretProps> = ({ column, row }) => {
       dispatch(
         initFretboardGrid({
           fretNumber: column,
-          strigNumber: row,
+          stringNumber: row,
           x,
           y,
           right,
@@ -63,13 +63,13 @@ const Grid: FC = () => {
   const { fretCols, fretRows } = useAppSelector((state) => state.fretboard);
   return (
     <div className={`grid grid-cols-${fretCols}`}>
-      {range(1, fretCols + 1).map((column: number) => {
-        return range(1, fretRows + 1).map((row: number) => {
+      {range(1, fretRows + 1).map((row: number) => {
+        return range(1, fretCols + 1).map((column: number) => {
           return (
             <Frets
-              key={uniqueId(String(column + row))}
-              column={column}
+              key={uniqueId(String(row + column))}
               row={row}
+              column={column}
             />
           );
         });

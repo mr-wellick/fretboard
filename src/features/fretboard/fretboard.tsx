@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useAppSelector } from "../../app/hooks";
-import Note from "../../components/note";
+import Note from "../../drag-n-drop/note";
 import map from "lodash.map";
 import Grid from "../grid/grid";
 
