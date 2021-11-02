@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { useAppSelector } from "../../app/hooks";
-import Grid from "../../components/grid";
 import Note from "../../components/note";
 import map from "lodash.map";
+import Grid from "../grid/grid";
 
 const Fretboard: FC = () => {
   const { pentatonicScales } = useAppSelector((state) => state.fretboard);

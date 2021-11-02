@@ -1,9 +1,10 @@
 import React, { FC, useRef, useEffect } from "react";
 import { useDrop } from "react-dnd";
-import { useAppSelector } from "../app/hooks";
-import { itemTypes } from "./itemTypes";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { itemTypes } from "../../components/itemTypes";
 import range from "lodash.range";
 import uniqueId from "lodash.uniqueid";
+import { initFretboardGrid } from "./gridSlice";
 
 type FretProps = {
   column: number;
@@ -11,6 +12,7 @@ type FretProps = {
 };
 
 const Frets: FC<FretProps> = ({ column, row }) => {
+  const dispatch = useAppDispatch();
   const fretContainerRef = useRef<HTMLInputElement>(null);
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: itemTypes.note,
@@ -25,7 +27,20 @@ const Frets: FC<FretProps> = ({ column, row }) => {
 
   useEffect(() => {
     if (fretContainerRef.current) {
-      console.log(fretContainerRef.current.getBoundingClientRect());
+      const { x, y, right, left, bottom, top } =
+        fretContainerRef.current.getBoundingClientRect();
+      dispatch(
+        initFretboardGrid({
+          fretNumber: column,
+          strigNumber: row,
+          x,
+          y,
+          right,
+          left,
+          bottom,
+          top,
+        })
+      );
     }
   }, []);
 
