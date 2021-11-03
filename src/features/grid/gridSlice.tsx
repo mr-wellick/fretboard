@@ -13,10 +13,12 @@ type FretboardGrid = {
   width: number;
   x: number;
   y: number;
+  id?: string;
+  fretNote?: string;
 };
 
 type FretState = {
-  activeNotes: PentatonicPositions[];
+  activeNotes: FretboardGrid[];
   fretboardGrid: FretboardGrid[];
 };
 

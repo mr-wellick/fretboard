@@ -95,7 +95,7 @@ const initialState: FretboardState = {
       {
         semitones: 7,
         stringNumber: 5,
-        fretNumber: 8,
+        fretNumber: 7,
         fretNote: "E",
         id: uniqueId("E"),
         root: null,

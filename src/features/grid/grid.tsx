@@ -9,13 +9,18 @@ import { initFretboardGrid } from "./gridSlice";
 const ActiveNotes: FC = () => {
   const { activeNotes } = useAppSelector((state) => state.grid);
   return (
-    <div className="absolute w-full h-full -z-10">
+    <div className="absolute w-full h-full">
       {activeNotes.map((note) => {
+        console.log(note);
         return (
           <div
             key={note.id}
             role="Note"
-            className="flex items-center justify-center border border-red-600 rounded-full h-12 w-12"
+            className="flex items-center justify-center rounded-full h-8 w-8 absolute bg-black text-white z-10"
+            style={{
+              top: `${note.top - note.height * 0.15}px`,
+              left: `${note.left - note.width * 0.72}px`,
+            }}
           >
             {note.fretNote}
           </div>
@@ -42,11 +47,11 @@ const Frets: FC<FretProps> = ({ column, row }) => {
     }),
   }));
 
-  const isActive = canDrop && isOver;
+  // const isActive = canDrop && isOver;
 
   useEffect(() => {
     if (fretContainerRef.current) {
-      const { x, y, right, left, bottom, top } =
+      const { x, y, right, left, bottom, top, width, height } =
         fretContainerRef.current.getBoundingClientRect();
       dispatch(
         initFretboardGrid({
@@ -58,6 +63,8 @@ const Frets: FC<FretProps> = ({ column, row }) => {
           left,
           bottom,
           top,
+          width,
+          height,
         })
       );
     }
@@ -68,12 +75,10 @@ const Frets: FC<FretProps> = ({ column, row }) => {
       <div
         ref={drop}
         role="Grid"
-        className="border border-gray-600"
+        className="border border-gray-600 p-2 h-10"
         data-column={column}
         data-row={row}
-      >
-        {isActive ? "Release to drop" : "Drag a box here"}
-      </div>
+      ></div>
     </div>
   );
 };
