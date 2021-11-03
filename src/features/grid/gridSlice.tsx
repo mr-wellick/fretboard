@@ -15,6 +15,7 @@ type FretboardGrid = {
   y: number;
   id?: string;
   fretNote?: string;
+  root?: string;
 };
 
 type FretState = {

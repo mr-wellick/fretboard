@@ -11,12 +11,18 @@ const ActiveNotes: FC = () => {
   return (
     <div className="absolute w-full h-full">
       {activeNotes.map((note) => {
-        console.log(note);
+        let root = "bg-black";
+        if (note.root === "major") {
+          root = "bg-blue-600";
+        } else if (note.root === "minor") {
+          root = "bg-pink-300";
+        }
+
         return (
           <div
             key={note.id}
             role="Note"
-            className="flex items-center justify-center rounded-full h-8 w-8 absolute bg-black text-white z-10"
+            className={`flex items-center justify-center rounded-full h-8 w-8 absolute text-white z-10 ${root}`}
             style={{
               top: `${note.top - note.height * 0.15}px`,
               left: `${note.left - note.width * 0.72}px`,
