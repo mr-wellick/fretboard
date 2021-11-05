@@ -1,8 +1,7 @@
-import React from "react";
-import type { NextPage } from "next";
+import React, { FC } from "react";
 import { Fretboard } from "../src";
 
-const Dashboard: NextPage = () => {
+const Dashboard: FC = () => {
   return (
     <div>
       <Fretboard />

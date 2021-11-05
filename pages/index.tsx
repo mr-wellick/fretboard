@@ -1,6 +1,6 @@
-import type { NextPage } from "next";
+import { FC } from "react";
 
-const Home: NextPage = () => {
+const Home: FC = () => {
   return <div>test</div>;
 };
 
