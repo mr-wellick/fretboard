@@ -1,1 +1,1 @@
-export { default as Fretboard } from "./fretboard/fretboard";
+export { default as FretboardGrid } from "./fretboardGrid/fretboardGrid";
