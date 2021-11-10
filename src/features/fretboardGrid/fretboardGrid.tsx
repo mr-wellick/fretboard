@@ -51,7 +51,9 @@ const OpenStringNames: FC = () => {
 
         if (!match) return null;
         const POSITION =
-          string.notePos === "top" ? -match.y / 2 : match.y - match.height / 10;
+          string.notePos === "top"
+            ? -match.y / 2.5
+            : match.y - match.height / 2.5;
 
         return (
           <p
