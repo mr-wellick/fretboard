@@ -7,7 +7,8 @@ type FretboardGridState = {
   fretRows: number;
   scaleLengthInCM: number;
   strings: {
-    stringNumber: number;
+    fretRow: number;
+    fretCol: number;
     notePos: string;
     name: string;
     id: string;
@@ -33,37 +34,43 @@ const initialState: FretboardGridState = {
   scaleLengthInCM: 64.77,
   strings: [
     {
-      stringNumber: 0,
+      fretRow: 0,
+      fretCol: 0,
       notePos: "top",
       name: "E",
       id: uniqueId("E"),
     },
     {
-      stringNumber: 0,
+      fretRow: 0,
+      fretCol: 0,
       notePos: "bottom",
       name: "B",
       id: uniqueId("B"),
     },
     {
-      stringNumber: 1,
+      fretRow: 1,
+      fretCol: 0,
       notePos: "bottom",
       name: "G",
       id: uniqueId("G"),
     },
     {
-      stringNumber: 2,
+      fretRow: 2,
+      fretCol: 0,
       notePos: "bottom",
       name: "D",
       id: uniqueId("D"),
     },
     {
-      stringNumber: 3,
+      fretRow: 3,
+      fretCol: 0,
       notePos: "bottom",
       name: "A",
       id: uniqueId("A"),
     },
     {
-      stringNumber: 4,
+      fretRow: 4,
+      fretCol: 0,
       notePos: "bottom",
       name: "E",
       id: uniqueId("E"),
