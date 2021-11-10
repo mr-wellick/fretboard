@@ -1,12 +1,8 @@
 import React, { FC } from "react";
-import { Fretboard } from "../src";
+import { FretboardGrid } from "../src";
 
 const Dashboard: FC = () => {
-  return (
-    <div>
-      <Fretboard />
-    </div>
-  );
+  return <FretboardGrid />;
 };
 
 export default Dashboard;

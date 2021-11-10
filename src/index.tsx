@@ -1,1 +1,1 @@
-export { Fretboard } from "./features";
+export { FretboardGrid } from "./features";

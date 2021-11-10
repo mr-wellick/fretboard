@@ -1,13 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import fretboardReducer from "../features/fretboard/fretboardSlice";
-import gridSlice from "../features/grid/gridSlice";
+import fretboardGridReducer from "../features/fretboardGrid/fretboardGridSlice";
 
 export const store = configureStore({
   reducer: {
-    fretboard: fretboardReducer,
-    grid: gridSlice,
+    fretboardGrid: fretboardGridReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
