@@ -3,7 +3,24 @@ import uniqueId from "lodash.uniqueid";
 
 type Pentaonic = {
   root: "minor" | "major" | null;
-  fretCol: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
+  fretCol:
+    | 0
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 13
+    | 14
+    | 15
+    | 16;
   fretRow: 0 | 1 | 2 | 3 | 4;
   notePos: "top" | "bottom";
   fretNote: string;
@@ -236,6 +253,151 @@ const initialState: FretboardGridState = {
         id: uniqueId("C"),
         root: null,
       },
+      {
+        fretCol: 9,
+        fretRow: 4,
+        notePos: "bottom",
+        fretNote: "D",
+        id: uniqueId("D"),
+        root: null,
+      },
+      {
+        fretCol: 9,
+        fretRow: 3,
+        notePos: "bottom",
+        fretNote: "G",
+        id: uniqueId("G"),
+        root: null,
+      },
+      {
+        fretCol: 9,
+        fretRow: 2,
+        notePos: "bottom",
+        fretNote: "C",
+        id: uniqueId("C"),
+        root: null,
+      },
+      {
+        fretCol: 8,
+        fretRow: 1,
+        notePos: "bottom",
+        fretNote: "E",
+        id: uniqueId("E"),
+        root: null,
+      },
+      {
+        fretCol: 11,
+        fretRow: 4,
+        notePos: "bottom",
+        fretNote: "E",
+        id: uniqueId("E"),
+        root: null,
+      },
+      {
+        fretCol: 11,
+        fretRow: 3,
+        notePos: "bottom",
+        fretNote: "A",
+        id: uniqueId("A"),
+        root: null,
+      },
+      {
+        fretCol: 11,
+        fretRow: 2,
+        notePos: "bottom",
+        fretNote: "D",
+        id: uniqueId("D"),
+        root: null,
+      },
+      {
+        fretCol: 11,
+        fretRow: 1,
+        notePos: "bottom",
+        fretNote: "G",
+        id: uniqueId("G"),
+        root: null,
+      },
+      {
+        fretCol: 9,
+        fretRow: 1,
+        notePos: "top",
+        fretNote: "A",
+        id: uniqueId("A"),
+        root: null,
+      },
+      {
+        fretCol: 12,
+        fretRow: 1,
+        notePos: "top",
+        fretNote: "C",
+        id: uniqueId("C"),
+        root: null,
+      },
+      {
+        fretCol: 9,
+        fretRow: 0,
+        notePos: "top",
+        fretNote: "D",
+        id: uniqueId("D"),
+        root: null,
+      },
+      {
+        fretCol: 11,
+        fretRow: 0,
+        notePos: "top",
+        fretNote: "E",
+        id: uniqueId("E"),
+        root: null,
+      },
+      {
+        fretCol: 14,
+        fretRow: 4,
+        notePos: "bottom",
+        fretNote: "G",
+        id: uniqueId("G"),
+        root: null,
+      },
+      {
+        fretCol: 14,
+        fretRow: 3,
+        notePos: "bottom",
+        fretNote: "C",
+        id: uniqueId("C"),
+        root: null,
+      },
+      {
+        fretCol: 13,
+        fretRow: 2,
+        notePos: "bottom",
+        fretNote: "E",
+        id: uniqueId("E"),
+        root: null,
+      },
+      {
+        fretCol: 13,
+        fretRow: 1,
+        notePos: "bottom",
+        fretNote: "A",
+        id: uniqueId("A"),
+        root: null,
+      },
+      {
+        fretCol: 14,
+        fretRow: 1,
+        notePos: "top",
+        fretNote: "D",
+        id: uniqueId("D"),
+        root: null,
+      },
+      {
+        fretCol: 14,
+        fretRow: 0,
+        notePos: "top",
+        fretNote: "G",
+        id: uniqueId("G"),
+        root: null,
+      },
+      ,
     ],
     firstPosition: [
       {
