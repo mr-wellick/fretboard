@@ -397,7 +397,6 @@ const initialState: FretboardGridState = {
         id: uniqueId("G"),
         root: null,
       },
-      ,
     ],
     firstPosition: [
       {
