@@ -50,7 +50,7 @@ const OpenStringNames: FC = () => {
   const { strings, grid } = useAppSelector((state) => state.fretboardGrid);
 
   return (
-    <section className="grid grid-cols-1 mr-3 w-8 relative">
+    <section className="grid grid-cols-1 pr-3 mr-1 w-8 relative bg-white">
       {strings.map((string) => {
         const match = find(grid, {
           fretRow: string.fretRow,
@@ -100,7 +100,7 @@ const Notes: FC = () => {
 
         return (
           <p
-            className="border rounded-full p-1 h-8 w-8 text-center bg-white absolute"
+            className="border rounded-full p-1 h-8 w-8 text-center bg-white absolute shadow-lg"
             key={note.id}
             style={{
               top: TOP,
@@ -118,7 +118,10 @@ const Notes: FC = () => {
 const FretboardGrid: FC = () => {
   const { fretRows, fretCols } = useAppSelector((state) => state.fretboardGrid);
   return (
-    <div className="flex m-10">
+    <div
+      className="flex p-10"
+      style={{ backgroundColor: "rgb(255, 227, 161)" }}
+    >
       <OpenStringNames />
       <section className={`grid grid-cols-${fretCols} relative w-full`}>
         <Notes />
