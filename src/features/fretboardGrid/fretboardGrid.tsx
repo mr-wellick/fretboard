@@ -35,7 +35,15 @@ const Frets: FC<FretProps> = ({ fretRow, fretCol }) => {
     }
   }, []);
 
-  return <p ref={fretContainer} className="border border-black p-5"></p>;
+  return (
+    <p
+      ref={fretContainer}
+      className="border border-white p-5"
+      style={{
+        backgroundColor: "rgb(33,11,11)",
+      }}
+    ></p>
+  );
 };
 
 const OpenStringNames: FC = () => {
@@ -57,11 +65,49 @@ const OpenStringNames: FC = () => {
 
         return (
           <p
-            className="border rounded-full p-1 h-8 w-8 text-center text-white bg-pink-600 absolute"
+            className="border rounded-full p-1 h-8 w-8 text-center text-white bg-black absolute"
             key={string.id}
             style={{ top: `${POSITION}px` }}
           >
             {string.name}
+          </p>
+        );
+      })}
+    </section>
+  );
+};
+
+const Notes: FC = () => {
+  const { petantonicScales, grid } = useAppSelector(
+    (state) => state.fretboardGrid
+  );
+
+  return (
+    <section className="absolute">
+      {petantonicScales.firstPosition.map((note) => {
+        const match = find(grid, {
+          fretCol: note.fretCol,
+          fretRow: note.fretRow,
+        });
+
+        if (!match) return null;
+
+        const TOP =
+          note.notePos === "bottom"
+            ? `${match.top - match.height * 0.3}px`
+            : `${match.top - match.height * 1.3}px`;
+        const BOTTOM = `${match.left - match.width * 0.2}px`;
+
+        return (
+          <p
+            className="border rounded-full p-1 h-8 w-8 text-center bg-white absolute"
+            key={note.id}
+            style={{
+              top: TOP,
+              left: BOTTOM,
+            }}
+          >
+            {note.fretNote}
           </p>
         );
       })}
@@ -75,6 +121,7 @@ const FretboardGrid: FC = () => {
     <div className="flex m-10">
       <OpenStringNames />
       <section className={`grid grid-cols-${fretCols} relative w-full`}>
+        <Notes />
         {range(fretRows).map((row) => {
           return range(fretCols).map((col) => {
             return <Frets key={row + col} fretRow={row} fretCol={col} />;

@@ -1,6 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import uniqueId from "lodash.uniqueid";
 
+type Pentaonic = {
+  root: "minor" | "major" | null;
+  fretCol: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
+  fretRow: 0 | 1 | 2 | 3 | 4;
+  notePos: "top" | "bottom";
+  fretNote: string;
+  id: string;
+};
+
 type FretboardGridState = {
   instrument: string;
   fretCols: number;
@@ -9,7 +18,7 @@ type FretboardGridState = {
   strings: {
     fretRow: number;
     fretCol: number;
-    notePos: string;
+    notePos: "top" | "bottom";
     name: string;
     id: string;
   }[];
@@ -25,6 +34,10 @@ type FretboardGridState = {
     width: number;
     height: number;
   }[];
+  petantonicScales: {
+    allPositions: Pentaonic[];
+    firstPosition: Pentaonic[];
+  };
 };
 
 const initialState: FretboardGridState = {
@@ -77,6 +90,107 @@ const initialState: FretboardGridState = {
     },
   ],
   grid: [],
+  petantonicScales: {
+    allPositions: [],
+    firstPosition: [
+      {
+        fretCol: 4,
+        fretRow: 4,
+        notePos: "bottom",
+        fretNote: "A",
+        id: uniqueId("A"),
+        root: "minor",
+      },
+      {
+        fretCol: 7,
+        fretRow: 4,
+        notePos: "bottom",
+        fretNote: "C",
+        id: uniqueId("C"),
+        root: "major",
+      },
+      {
+        fretCol: 4,
+        fretRow: 3,
+        notePos: "bottom",
+        fretNote: "D",
+        id: uniqueId("D"),
+        root: null,
+      },
+      {
+        fretCol: 6,
+        fretRow: 3,
+        notePos: "bottom",
+        fretNote: "E",
+        id: uniqueId("E"),
+        root: null,
+      },
+      {
+        fretCol: 4,
+        fretRow: 2,
+        notePos: "bottom",
+        fretNote: "G",
+        id: uniqueId("G"),
+        root: null,
+      },
+      {
+        fretCol: 6,
+        fretRow: 2,
+        notePos: "bottom",
+        fretNote: "A",
+        id: uniqueId("A"),
+        root: null,
+      },
+      {
+        fretCol: 4,
+        fretRow: 1,
+        notePos: "bottom",
+        fretNote: "C",
+        id: uniqueId("C"),
+        root: null,
+      },
+      {
+        fretCol: 6,
+        fretRow: 1,
+        notePos: "bottom",
+        fretNote: "D",
+        id: uniqueId("D"),
+        root: null,
+      },
+      {
+        fretCol: 4,
+        fretRow: 0,
+        notePos: "bottom",
+        fretNote: "E",
+        id: uniqueId("E"),
+        root: null,
+      },
+      {
+        fretCol: 7,
+        fretRow: 0,
+        notePos: "bottom",
+        fretNote: "G",
+        id: uniqueId("G"),
+        root: null,
+      },
+      {
+        fretCol: 4,
+        fretRow: 0,
+        notePos: "top",
+        fretNote: "A",
+        id: uniqueId("A"),
+        root: null,
+      },
+      {
+        fretCol: 7,
+        fretRow: 0,
+        notePos: "top",
+        fretNote: "C",
+        id: uniqueId("C"),
+        root: null,
+      },
+    ],
+  },
 };
 
 export const fretboardSlice = createSlice({
