@@ -84,7 +84,7 @@ const Notes: FC = () => {
 
   return (
     <section className="absolute">
-      {petantonicScales.firstPosition.map((note) => {
+      {petantonicScales.allPositions.map((note) => {
         const match = find(grid, {
           fretCol: note.fretCol,
           fretRow: note.fretRow,
