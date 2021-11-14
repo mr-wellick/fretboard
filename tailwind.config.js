@@ -16,6 +16,13 @@ module.exports = {
       zIndex: {
         "-10": "-10",
       },
+      spacing: {
+        sidebar: "228px",
+        "main-content-width": "calc(100% - 228px)",
+      },
+      colors: {
+        "dark-blue": "#202a35",
+      },
     },
   },
   variants: {
