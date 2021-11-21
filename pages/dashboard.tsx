@@ -62,6 +62,9 @@ const Dashboard: FC = () => {
       <Sidebar />
       <div className="w-main-content-width absolute left-228">
         <Toolbar />
+        <div className="px-10 pt-6 pb-3 border border-bottom">
+          <p className="text-2xl font-light">Welcome to your Console</p>
+        </div>
       </div>
     </div>
   );
