@@ -3,7 +3,7 @@ import { AccountIcon, DashboardIcon, SearchIcon } from "../src/icons";
 
 const Toolbar: FC = () => {
   return (
-    <div className="flex flex-row border border-bottom">
+    <div className="flex flex-row border-b">
       <div className="flex items-center w-3/6 h-48">
         <div className="ml-4">
           <SearchIcon />
@@ -62,7 +62,7 @@ const Dashboard: FC = () => {
       <Sidebar />
       <div className="w-main-content-width absolute left-228">
         <Toolbar />
-        <div className="px-10 pt-6 pb-3 border border-bottom">
+        <div className="px-10 pt-6 pb-3 border-b">
           <p className="text-2xl font-light">Welcome to your Console</p>
         </div>
       </div>
