@@ -19,7 +19,10 @@ const Toolbar: FC = () => {
         </form>
       </div>
       <div className="flex items-center justify-end w-3/6 pr-4">
-        <a className="border rounded px-3 py-1 text-pink" href="#">
+        <a
+          className="border rounded px-3 py-1 text-pink hover:bg-gray-100"
+          href="#"
+        >
           Upgrade
         </a>
         <button className="ml-2">
