@@ -50,7 +50,7 @@ const OpenStringNames: FC = () => {
   const { strings, grid } = useAppSelector((state) => state.fretboardGrid);
 
   return (
-    <section className="grid grid-cols-1 pr-3 mr-1 w-8 relative bg-white">
+    <section className="grid grid-cols-1 pr-3 mr-1 w-8 bg-white">
       {strings.map((string) => {
         const match = find(grid, {
           fretRow: string.fretRow,
@@ -59,13 +59,11 @@ const OpenStringNames: FC = () => {
 
         if (!match) return null;
         const POSITION =
-          string.notePos === "top"
-            ? -match.y / 2.5
-            : match.y - match.height / 2.5;
+          string.notePos === "top" ? -match.y : match.y - match.height / 2.5;
 
         return (
           <p
-            className="border rounded-full p-1 h-8 w-8 text-center text-white bg-black absolute"
+            className="border rounded-full p-1 h-8 w-8 text-center text-white bg-black"
             key={string.id}
             style={{ top: `${POSITION}px` }}
           >
@@ -83,7 +81,7 @@ const Notes: FC = () => {
   );
 
   return (
-    <section className="absolute">
+    <section>
       {petantonicScales.allPositions.map((note) => {
         const match = find(grid, {
           fretCol: note.fretCol,
@@ -100,7 +98,7 @@ const Notes: FC = () => {
 
         return (
           <p
-            className="border rounded-full p-1 h-8 w-8 text-center bg-white absolute shadow-lg"
+            className="border rounded-full p-1 h-8 w-8 text-center bg-white shadow-lg"
             key={note.id}
             style={{
               top: TOP,
@@ -123,8 +121,8 @@ const FretboardGrid: FC = () => {
       style={{ backgroundColor: "rgb(255, 227, 161)" }}
     >
       <OpenStringNames />
-      <section className={`grid grid-cols-${fretCols} relative w-full`}>
-        <Notes />
+      {/* <Notes /> */}
+      <section className={`grid grid-cols-${fretCols} w-full`}>
         {range(fretRows).map((row) => {
           return range(fretCols).map((col) => {
             return <Frets key={row + col} fretRow={row} fretCol={col} />;

@@ -6,6 +6,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      flexGrow: {
+        1: "1",
+        2: "2",
+      },
       gridTemplateColumns: {
         12: "repeat(12, minmax(0, 1fr))",
         13: "repeat(13, minmax(0, 1fr))",
@@ -20,6 +24,7 @@ module.exports = {
         sidebar: "228px",
         "main-content-width": "calc(100% - 228px)",
         48: "48px",
+        228: "228px",
       },
       colors: {
         "dark-blue": "#202a35",

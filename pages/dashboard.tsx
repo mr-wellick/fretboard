@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { FretboardGrid } from "../src";
 import { AccountIcon, DashboardIcon, SearchIcon } from "../src/icons";
 
 const Toolbar: FC = () => {
@@ -60,10 +61,18 @@ const Dashboard: FC = () => {
   return (
     <div>
       <Sidebar />
-      <div className="w-main-content-width absolute left-228">
+      <div className="w-main-content-width ml-228">
         <Toolbar />
         <div className="px-10 pt-6 pb-3 border-b">
           <p className="text-2xl font-light">Welcome to your Console</p>
+        </div>
+        <div className="px-10 pt-6 pb-20">
+          <div className="flex">
+            <div className="flex-grow-2">
+              <FretboardGrid />
+            </div>
+            <div className="flex-grow-1">dropdowns</div>
+          </div>
         </div>
       </div>
     </div>
