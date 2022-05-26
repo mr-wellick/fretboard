@@ -23,15 +23,22 @@ module.exports = {
       spacing: {
         sidebar: "228px",
         "main-content-width": "calc(100% - 228px)",
+        6: "6px",
+        16: "16px",
         48: "48px",
+        52: "52px",
         228: "228px",
       },
       colors: {
         "dark-blue": "#202a35",
         pink: "#f4027d",
+        grey: "#4b5a6c",
       },
       inset: {
         228: "228px",
+      },
+      borderWidth: {
+        1: "1px",
       },
     },
   },
